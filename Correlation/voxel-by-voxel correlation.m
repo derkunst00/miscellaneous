@@ -25,6 +25,11 @@ niftiwrite(pvals,'outputpval_raw.nii')
 pvals_significant = double(pvals < 0.001);
 niftiwrite(pvals,'outputpval_sig.nii')
 
+    
+% Below is about plotting time-series. You may need to multiply some numbers to compare different time series in different scales. 
+% You can just use FSLview or other display software to draw time-series plot.
+    
+
 coordinates = {...
          [45 27 29 1]; ... % frontal GM coord
          [ 16 42 29 1]; ... % WM coord
@@ -37,10 +42,8 @@ for c = 1:length(coordinates)
     else
         coordinates2=coordinates{c}'; 
     end
-    
-% Below is about plotting time-series. You may need to multiply some numbers to compare different time series in different scales. 
-% You can just use FSLview or other display software to draw time-series plot.
-    
+
+
 timeseries_raw = squeeze(conn_vols(coordinates2(1),coordinates2(2),coordinates2(3),:)); % time course of image 1
 timeseries_conn = squeeze(raw_vols(coordinates2(1),coordinates2(2),coordinates2(3),:)); % time course of image 2
 
