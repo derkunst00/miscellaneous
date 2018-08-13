@@ -1,4 +1,8 @@
 % matlab
+% Computes means and standard deviations of signals from four corners of the 4D-image where only the air resides(thus should only contain noise). Criteria can be changed(default 0.6) but any noticeable fluctuations with naked eye should be avoided from analyses.
+% The code consists of only simple chain of loops which can be further optimized for efficiency. If one of the corner fails to meet the threshold, it halts with a message and does not calculate other corners. The initial "goodguy.nii" or "badguy.nii" used in the code was meant for examples but since it easily exceeds 50mb, it was not attached here.
+% Possible cause for fluctuations are mostly mechanical malfunctioning.
+% Every fMRI data must go through this step to be preprocessed or further analyzed.
 
 clear all
 subjects={'badguy','goodguy1','goodguy2','goodguy3'};
