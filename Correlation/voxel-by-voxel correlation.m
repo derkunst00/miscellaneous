@@ -17,23 +17,6 @@ for i = 1:size(raw_vols,1)
     end
 end
 
-% figure
-% x = 1:size(corrs,1);
-% y = 1:size(corrs,2);
-% [a,b] = meshgrid(x,y);
-% c = corrs(a(1,:),b(:,1),25);%you can change the slide by changing the z coordinate here
-% surf(a,b,transpose(c));
-% view(2);
-% title('Correlation Coefficients')
-% 
-% figure
-% x2 = 1:size(pvals,1);
-% y2 = 1:size(pvals,2);
-% [a2,b2] = meshgrid(x2,y2);
-% c2 = pvals(a2(1,:),b2(:,1),25);%you can change the slide by changing the z coordinate here
-% surf(a2,b2,transpose(c2));
-% view(2);
-% title('p-values')
 
 
 
@@ -55,6 +38,8 @@ for c = 1:length(coordinates)
         coordinates2=coordinates{c}'; 
     end
     
+% Below is about plotting time-series. You may need to multiply some numbers to compare different time series in different scales. 
+% You can just use FSLview or other display software to draw time-series plot.
     
 timeseries_raw = squeeze(conn_vols(coordinates2(1),coordinates2(2),coordinates2(3),:)); % time course of image 1
 timeseries_conn = squeeze(raw_vols(coordinates2(1),coordinates2(2),coordinates2(3),:)); % time course of image 2
